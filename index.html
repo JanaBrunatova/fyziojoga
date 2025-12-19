@@ -15,7 +15,6 @@
             --background-color: #F6FFF8;
             --text-color: #333;
             --white: #ffffff;
-            --star-color: #FFC107;
         }
 
         body {
@@ -24,7 +23,7 @@
             color: var(--text-color);
             margin: 0;
             padding: 0;
-            padding-bottom: 80px; /* Zvětšeno místo pro menu */
+            padding-bottom: 80px; 
         }
 
         header {
@@ -123,16 +122,16 @@
         }
         
         /* FAQ a O mně */
-        .faq-item, .review-item {
+        .faq-item {
             background: var(--white);
             margin-bottom: 10px;
             padding: 15px;
             border-radius: 10px;
             border: 1px solid #eee;
         }
-        .question, .review-author { font-weight: bold; margin-bottom: 5px; color: var(--primary-color); }
+        .question { font-weight: bold; margin-bottom: 5px; color: var(--primary-color); }
         
-        /* NOVÉ: Styl pro sekci O mně */
+        /* Styl pro sekci O mně */
         .profile-header {
             text-align: center;
             margin-bottom: 20px;
@@ -150,30 +149,15 @@
         .cert-list li { margin-bottom: 8px; padding-left: 20px; position: relative; }
         .cert-list li::before { content: "✓"; color: var(--primary-color); position: absolute; left: 0; font-weight: bold; }
 
-        /* NOVÉ: Styl pro recenze */
-        .stars { color: var(--star-color); letter-spacing: 2px; }
-        .review-date { font-size: 12px; color: #999; float: right; }
-        
-        /* Formulář pro recenzi */
-        .review-form {
-            background: var(--white); padding: 15px; border-radius: 15px; margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .form-input, .form-textarea, .form-select {
-            width: 100%; padding: 10px; margin-bottom: 10px;
-            border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box;
-            font-family: inherit;
-        }
-
-        /* Spodní navigace - upravena pro 5 položek */
+        /* Spodní navigace - 4 položky */
         .bottom-nav {
             position: fixed; bottom: 0; width: 100%; background: var(--white);
-            display: flex; justify-content: space-around; padding: 10px 0;
+            display: flex; justify-content: space-around; padding: 15px 0;
             border-top: 1px solid #eee; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); z-index: 1000;
         }
 
         .nav-item {
-            color: #999; text-decoration: none; font-size: 10px; /* Zmenšeno písmo */
+            color: #999; text-decoration: none; font-size: 12px; /* Vráceno na 12px */
             text-align: center; flex: 1;
         }
         .nav-item.active { color: var(--primary-color); font-weight: bold; }
@@ -204,9 +188,9 @@
             <h2>Rezervace lekce</h2>
             <div class="card">
                 <div class="card-content">
-                    <p>Připojte se k nám na pravidelnou lekci. Kapacita je omezena na 15 osob.</p>
-                    <p><strong>Kdy:</strong> Každé úterý 18:00</p>
-                    <p><strong>Kde:</strong> Studio Relax, Praha</p>
+                    <p>Cena 200 Kč, platba na místě</p>
+                    <p><strong>Kdy:</strong> Každou středu 9:00-10:00</p>
+                    <p><strong>Kde:</strong> InDance centrum, Zvonková 2, Praha</p>
                     <br>
                     <a href="#" class="btn">Rezervovat místo</a>
                 </div>
@@ -216,43 +200,20 @@
         <div id="about" class="section">
             <div class="profile-header">
                 <img src="https://via.placeholder.com/150" alt="Lenka" class="profile-img">
-                <h2>Ahoj, jsem Lenka</h2>
+                <h2>Ahoj, jsem Karolína</h2>
             </div>
             <div class="card">
                 <div class="card-content">
                     <p class="bio-text">
-                        Józe se věnuji více než 10 let. Moje cesta začala jako způsob, jak ulevit od bolesti zad, a přerostla v celoživotní vášeň. 
-                        Jako maminka vím, jak je těžké najít si čas na sebe, proto jsem vytvořila koncept FyzioJógy, kde je vítáno i vaše dítko.
+                        Jsem fyzioterapeutka a certifikovaná lektorka jógy. 
                     </p>
                     <h3>Moje kvalifikace:</h3>
                     <ul class="cert-list">
-                        <li>Certifikovaný lektor Hatha Jógy (200 hod)</li>
-                        <li>Kurz Fyzio konceptu pro těhotné a po porodu</li>
-                        <li>Instruktor zdravotní tělesné výchovy</li>
+                        <li>Fyzioterapeutka ve FN Motol (5 let)</li>
+                        <li>Absolvovala jsem lektorský kurz jógy</li>
                     </ul>
                 </div>
             </div>
-        </div>
-
-        <div id="reviews" class="section">
-            <h2>Hodnocení klientek</h2>
-            
-            <div class="review-form">
-                <h3>Napsat recenzi</h3>
-                <input type="text" id="reviewName" class="form-input" placeholder="Vaše jméno">
-                <select id="reviewStars" class="form-select">
-                    <option value="5">⭐⭐⭐⭐⭐ (Skvělé)</option>
-                    <option value="4">⭐⭐⭐⭐ (Velmi dobré)</option>
-                    <option value="3">⭐⭐⭐ (Dobré)</option>
-                    <option value="2">⭐⭐ (Průměrné)</option>
-                    <option value="1">⭐ (Slabé)</option>
-                </select>
-                <textarea id="reviewText" class="form-textarea" rows="3" placeholder="Jak se vám lekce líbila?"></textarea>
-                <button onclick="addReview()" class="btn" style="margin-bottom: 0;">Odeslat hodnocení</button>
-            </div>
-
-            <div id="review-list">
-                </div>
         </div>
 
         <div id="faq" class="section">
@@ -276,9 +237,6 @@
         </a>
         <a href="#" class="nav-item" onclick="switchTab('about', this)">
             <span class="nav-icon">👩‍🦰</span>O mně
-        </a>
-        <a href="#" class="nav-item" onclick="switchTab('reviews', this)">
-            <span class="nav-icon">⭐</span>Recenze
         </a>
         <a href="#" class="nav-item" onclick="switchTab('faq', this)">
             <span class="nav-icon">❓</span>Info
@@ -355,61 +313,7 @@
             else renderCviky(cviky.filter(cvik => cvik.typ === kategorie));
         }
 
-        // --- 3. LOGIKA HODNOCENÍ ---
-        // Výchozí "falešné" recenze pro ukázku
-        const defaultReviews = [
-            { name: "Jana M.", stars: 5, text: "Úžasná lekce! Cítím se po ní skvěle." },
-            { name: "Petra K.", stars: 5, text: "Chodím i s malým a oba si to užíváme." },
-            { name: "Eva S.", stars: 4, text: "Příjemné prostředí a super kolektiv." }
-        ];
-
-        // Načtení recenzí z paměti prohlížeče (pokud tam nějaké jsou)
-        let savedReviews = JSON.parse(localStorage.getItem('myReviews')) || [];
-        // Spojíme výchozí a uložené
-        let allReviews = [...defaultReviews, ...savedReviews];
-
-        const reviewListElement = document.getElementById('review-list');
-
-        function renderReviews() {
-            reviewListElement.innerHTML = "";
-            allReviews.forEach(rev => {
-                let starsStr = "⭐".repeat(rev.stars);
-                const html = `
-                    <div class="review-item">
-                        <div class="review-author">${rev.name} <span class="review-date">${starsStr}</span></div>
-                        <div>${rev.text}</div>
-                    </div>
-                `;
-                reviewListElement.innerHTML += html;
-            });
-        }
-
-        function addReview() {
-            const name = document.getElementById('reviewName').value;
-            const text = document.getElementById('reviewText').value;
-            const stars = parseInt(document.getElementById('reviewStars').value);
-
-            if(name && text) {
-                const newReview = { name: name, stars: stars, text: text };
-                
-                // Uložíme do seznamu "našich" recenzí
-                savedReviews.push(newReview);
-                localStorage.setItem('myReviews', JSON.stringify(savedReviews));
-                
-                // Přidáme do hlavního seznamu a překreslíme
-                allReviews.push(newReview);
-                renderReviews();
-                
-                // Vyčistíme formulář
-                document.getElementById('reviewName').value = "";
-                document.getElementById('reviewText').value = "";
-                alert("Děkujeme za vaše hodnocení!");
-            } else {
-                alert("Prosím vyplňte jméno a text recenze.");
-            }
-        }
-
-        // --- 4. NAVIGACE ---
+        // --- 3. NAVIGACE ---
         function switchTab(tabId, navElement) {
             document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
@@ -420,7 +324,6 @@
 
         // Inicializace
         renderCviky(cviky);
-        renderReviews();
 
     </script>
 </body>
